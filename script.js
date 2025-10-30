@@ -10,32 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
 
-  // --- Wave class ---
-  class Wave {
-    constructor(amplitude, wavelength, speed, color, offsetY) {
-      this.amplitude = amplitude;
-      this.wavelength = wavelength;
-      this.speed = speed;
-      this.color = color;
-      this.offset = 0;
-      this.offsetY = offsetY;
-    }
-    update(deltaSec) {
-      this.offset += this.speed * deltaSec;
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.moveTo(0, canvas.height);
-      for (let x = 0; x <= canvas.width; x++) {
-        let y = Math.sin((x / this.wavelength) + this.offset) * this.amplitude + this.offsetY;
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(canvas.width, canvas.height);
-      ctx.closePath();
-      ctx.fillStyle = this.color;
-      ctx.fill();
-    }
-  }
+
 
   // --- Star class ---
   class Star {
@@ -58,19 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- Waves ---
-  let waves = [
-    new Wave(30, 200, 0.2, "rgba(0,150,255,0.6)", canvas.height * 0.7),
-    new Wave(20, 150, 0.15, "rgba(0,100,255,0.5)", canvas.height * 0.75),
-    new Wave(15, 100, 0.1, "rgba(0,50,200,0.5)", canvas.height * 0.8)
-  ];
 
-  // --- Sun ---
-  let sun = {
-    radius: canvas.width < 600 ? 50 : 100,
-    speed: 0.01,
-    progress: 0
-  };
 
   // --- Stars ---
   let stars = [];
@@ -91,32 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gradient.addColorStop(1, "#87CEEB");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Stars
-    stars.forEach(star => {
-      star.update(deltaSec);
-      star.draw();
-    });
-
-    // Sun
-    sun.progress += sun.speed * deltaSec;
-    if (sun.progress > 1) sun.progress = 0;
-    let sunX = sun.progress * canvas.width;
-    let sunY = canvas.height * 0.75 - Math.sin(sun.progress * Math.PI) * (canvas.height * 0.4);
-
-    ctx.save();
-    ctx.filter = "blur(10px)";
-    ctx.beginPath();
-    ctx.arc(sunX, sunY, sun.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255,200,0,0.9)";
-    ctx.fill();
-    ctx.restore();
-
-    // Waves
-    waves.forEach(wave => {
-      wave.update(deltaSec);
-      wave.draw();
-    });
 
     requestAnimationFrame(animate);
   }
