@@ -37,44 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- Star class ---
-  class Star {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height * 0.5;
-      this.radius = Math.random() * 1.5 + 0.5;
-      this.opacity = Math.random();
-    }
-    update(deltaSec) {
-      this.opacity += (Math.random() - 0.5) * 0.02;
-      if (this.opacity < 0) this.opacity = 0;
-      if (this.opacity > 1) this.opacity = 1;
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-      ctx.fill();
-    }
-  }
 
-  // --- Waves ---
-  let waves = [
-    new Wave(30, 200, 0.2, "rgba(0,150,255,0.6)", canvas.height * 0.7),
-    new Wave(20, 150, 0.15, "rgba(0,100,255,0.5)", canvas.height * 0.75),
-    new Wave(15, 100, 0.1, "rgba(0,50,200,0.5)", canvas.height * 0.8)
-  ];
 
-  // --- Sun ---
-  let sun = {
-    radius: canvas.width < 600 ? 50 : 100,
-    speed: 0.01,
-    progress: 0
-  };
 
-  // --- Stars ---
-  let stars = [];
-  for (let i = 0; i < 50; i++) stars.push(new Star());
+
+
 
   let lastTime = 0;
 
@@ -98,25 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       star.draw();
     });
 
-    // Sun
-    sun.progress += sun.speed * deltaSec;
-    if (sun.progress > 1) sun.progress = 0;
-    let sunX = sun.progress * canvas.width;
-    let sunY = canvas.height * 0.75 - Math.sin(sun.progress * Math.PI) * (canvas.height * 0.4);
 
-    ctx.save();
-    ctx.filter = "blur(10px)";
-    ctx.beginPath();
-    ctx.arc(sunX, sunY, sun.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(255,200,0,0.9)";
-    ctx.fill();
-    ctx.restore();
-
-    // Waves
-    waves.forEach(wave => {
-      wave.update(deltaSec);
-      wave.draw();
-    });
 
     requestAnimationFrame(animate);
   }
