@@ -805,6 +805,7 @@ video {
   background: rgba(0,0,0,0.85);
   z-index:1000;
 }
+
 .lightbox.open { 
   display:flex; 
 }
@@ -874,33 +875,50 @@ video {
 }
 
 /* Сум товчлуурууд */
-    .nav-btn {
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:none;
-      color:#ffffff;
-      border:none;
-      font-size:48px;
-      cursor:pointer;
-      padding:0;
-      user-select:none;
-      transition: color .2s;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* сүүдэр */
-    }
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 32px;         /* жижиг хэмжээ */
+  border: none;
+  background: none !important;  /* 🔹 ямар ч дэвсгэр байхгүй */
+  backdrop-filter: none !important; /* 🔹 blur эффект болиулах */
+  border-radius: 0 !important;  /* 🔹 дугуй хэлбэрийг болиулах */
+  box-shadow: none !important;  /* 🔹 сүүдэр арилгах */
+  outline: none !important;     /* 🔹 цэнхэр хүрээ байхгүй */
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s ease;
+  z-index: 10;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8); /* зөвхөн бичгийн сүүдэр */
+}
 
-    .nav-btn:hover { color:#c0bfbf; }
-    .nav-prev { left:10px; }
-    .nav-next { right:10px; }
+/* Hover үед өнгө нь бага зэрэг цайна */
+.nav-btn:hover {
+  color: #ccc;
+}
 
-    .nav-btn,
-    .nav-btn:hover,
-    .nav-btn:focus,
-    .nav-btn:active {
-    background: none !important;   /* ямар ч дэвсгэр байхгүй болгоно */
-    outline: none !important;      /* цэнхэр хүрээ алга болгоно */
-    box-shadow: none !important;   /* browser-ын default effect арилгана */
-    }
+/* Зүүн ба баруун байрлал */
+.nav-prev {
+  left: 20px;
+}
+.nav-next {
+  right: 20px;
+}
+
+/* Товчны бүх төлөвт ямар ч дэвсгэр, хүрээ байхгүй */
+.nav-btn,
+.nav-btn:hover,
+.nav-btn:focus,
+.nav-btn:active {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
 
     @media (max-width:560px){
       .thumb img{ height:180px; }
