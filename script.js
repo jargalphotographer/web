@@ -95,6 +95,23 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+
+// Формаа барих
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // Формыг бодитоор илгээхгүй зогсооно
+  alert("Таны мэйл илгээгдлээ!");
+  this.reset(); // Формын талбаруудыг хоослоно
+});
+
+
 // Slideshow
 let slides = document.querySelectorAll('.slide');
 let dots = document.querySelectorAll('.dot');
@@ -140,21 +157,6 @@ nextBtn.addEventListener('click', () => {
 
 
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
-
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('active');
-});
-
-
-// Формаа барих
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault(); // Формыг бодитоор илгээхгүй зогсооно
-  alert("Таны мэйл илгээгдлээ!");
-  this.reset(); // Формын талбаруудыг хоослоно
-});
 
 
 
