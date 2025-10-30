@@ -37,6 +37,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // --- Star class ---
+  class Star {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height * 0.5;
+      this.radius = Math.random() * 1.5 + 0.5;
+      this.opacity = Math.random();
+    }
+    update(deltaSec) {
+      this.opacity += (Math.random() - 0.5) * 0.02;
+      if (this.opacity < 0) this.opacity = 0;
+      if (this.opacity > 1) this.opacity = 1;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
 
 
 

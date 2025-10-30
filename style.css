@@ -26,12 +26,12 @@ body {
 }
 
 .section-title2 {
-  text-align: center;
+  text-align: center; /* голлуулна */
   font-size: 42px;
   font-weight: bold;
-  margin: 50px;
+  margin-bottom: 50px;
   color: #ffffff;
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', cursive; /* гоёмсог бичиг */
 }
 
 
