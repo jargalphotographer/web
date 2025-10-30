@@ -1,13 +1,3 @@
-  // Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
-
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('active');
-});
-  
-  
-  
   // Canvas авах
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("bg");
@@ -20,7 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
 
-
+  // --- Wave class ---
+  class Wave {
+    constructor(amplitude, wavelength, speed, color, offsetY) {
+      this.amplitude = amplitude;
+      this.wavelength = wavelength;
+      this.speed = speed;
+      this.color = color;
+      this.offset = 0;
+      this.offsetY = offsetY;
+    }
+    update(deltaSec) {
+      this.offset += this.speed * deltaSec;
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height);
+      for (let x = 0; x <= canvas.width; x++) {
+        let y = Math.sin((x / this.wavelength) + this.offset) * this.amplitude + this.offsetY;
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(canvas.width, canvas.height);
+      ctx.closePath();
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
 
   // --- Star class ---
   class Star {
@@ -43,7 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // --- Waves ---
+  let waves = [
+    new Wave(30, 200, 0.2, "rgba(0,150,255,0.6)", canvas.height * 0.7),
+    new Wave(20, 150, 0.15, "rgba(0,100,255,0.5)", canvas.height * 0.75),
+    new Wave(15, 100, 0.1, "rgba(0,50,200,0.5)", canvas.height * 0.8)
+  ];
 
+  // --- Sun ---
+  let sun = {
+    radius: canvas.width < 600 ? 50 : 100,
+    speed: 0.01,
+    progress: 0
+  };
 
   // --- Stars ---
   let stars = [];
@@ -65,6 +92,32 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    // Stars
+    stars.forEach(star => {
+      star.update(deltaSec);
+      star.draw();
+    });
+
+    // Sun
+    sun.progress += sun.speed * deltaSec;
+    if (sun.progress > 1) sun.progress = 0;
+    let sunX = sun.progress * canvas.width;
+    let sunY = canvas.height * 0.75 - Math.sin(sun.progress * Math.PI) * (canvas.height * 0.4);
+
+    ctx.save();
+    ctx.filter = "blur(10px)";
+    ctx.beginPath();
+    ctx.arc(sunX, sunY, sun.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255,200,0,0.9)";
+    ctx.fill();
+    ctx.restore();
+
+    // Waves
+    waves.forEach(wave => {
+      wave.update(deltaSec);
+      wave.draw();
+    });
+
     requestAnimationFrame(animate);
   }
 
@@ -73,31 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Dropdown Portfolio (hover ажиллах JS)
+// Dropdown Portfolio
 const portfolioBtn = document.getElementById('portfolio-btn');
 const portfolioMenu = document.getElementById('portfolio-menu');
 const dropdown = portfolioBtn.closest('.dropdown');
 
-// --- Хулгана очиход submenu гарч ирнэ ---
-dropdown.addEventListener('mouseenter', () => {
-  portfolioMenu.classList.add('active');
-  dropdown.classList.add('open');
-});
-
-// --- Хулгана гарч явахад submenu алга болно ---
-dropdown.addEventListener('mouseleave', () => {
-  portfolioMenu.classList.remove('active');
-  dropdown.classList.remove('open');
-});
-
-// --- Click үйлдлийг бас хадгална (утас, touch төхөөрөмжид хэрэгтэй) ---
-portfolioBtn.addEventListener('touchstart', (e) => {
+portfolioBtn.addEventListener('click', (e) => {
   e.preventDefault();
   portfolioMenu.classList.toggle('active');
   dropdown.classList.toggle('open');
 });
 
-// --- Гадна талд дарахад submenu хаагдана ---
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.dropdown')) {
     portfolioMenu.classList.remove('active');
@@ -105,7 +144,45 @@ document.addEventListener('click', (e) => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let index = 0;
 
+  function showSlide(i) {
+    slides.forEach((slide, n) => slide.classList.toggle('active', n === i));
+    dots.forEach((dot, n) => dot.classList.toggle('active', n === i));
+    index = i;
+  }
+
+  function nextSlide() {
+    showSlide((index + 1) % slides.length);
+  }
+
+  function prevSlide() {
+    showSlide((index - 1 + slides.length) % slides.length);
+  }
+
+  // Автоматаар 5 секунд тутам солигдох
+  setInterval(nextSlide, 5000);
+
+  // Dots дээр дарвал тухайн slide руу шилжих
+  dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+
+  // Prev / Next товч дээр дарахад ажиллах
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+});
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
 
 
 // Формаа барих
@@ -114,53 +191,6 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
   alert("Таны мэйл илгээгдлээ!");
   this.reset(); // Формын талбаруудыг хоослоно
 });
-
-
-// Slideshow
-let slides = document.querySelectorAll('.slide');
-let dots = document.querySelectorAll('.dot');
-let index = 0;
-
-function showSlide(i) {
-  slides.forEach((slide, n) => {
-    slide.classList.toggle('active', n === i);
-    dots[n].classList.toggle('active', n === i);
-  });
-  index = i;
-}
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-
-setInterval(nextSlide, 10000); // 5 секунд тутам автоматаар солигдоно
-
-// Дот дээр дарвал тухайн зураг руу шилжинэ
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    showSlide(i);
-  });
-});
-
-
-// --- Зүүн, баруун сумны үйлдэл --- //
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-
-prevBtn.addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-});
-
-nextBtn.addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-});
-
-
-
-
 
 
 
