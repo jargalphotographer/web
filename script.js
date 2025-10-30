@@ -1,3 +1,13 @@
+  // Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+  
+  
+  
   // Canvas авах
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("bg");
@@ -95,13 +105,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
 
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('active');
-});
 
 
 // Формаа барих
