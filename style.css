@@ -391,22 +391,31 @@ section {
 }
 
 .text-box {
-  max-width: 500px;
+  max-width: 460px;
+  margin-left: 0px; /* зурагтай зай өгнө */
 }
 
 .text-box h1 {
-  font-size: 2rem;
+  font-size: 26px;
   margin-bottom: 20px;
-  line-height: 1.4;
+  line-height: 1.8;
   font-weight: 500;
   color: white;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.1px; /* ↓ илүү шахуу болно */
+  font-family: 'Lobster', cursive; /* гоёмсог бичиг */
 }
 
 .text-box p {
-  font-size: 1rem;
+  font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
   color: white;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: -0.3px; /* ← үсэг хооронд зай багассан */
+  font-family: 'Lobster', cursive; /* гоёмсог бичиг */
 }
 
 
