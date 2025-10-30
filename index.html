@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jargal Photographer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@700&family=Roboto:wght@700&family=Open+Sans:wght@700&family=Lato:wght@700&family=Bebas+Neue&family=Anton&family=Oswald:wght@700&family=League+Spartan:wght@700&family=Raleway:wght@700&family=Playfair+Display:wght@700&family=Merriweather:wght@700&family=Cinzel:wght@700&family=Cormorant+Garamond:wght@700&family=Pacifico&family=Baloo+2:wght@700&family=Lobster&family=Fredoka+One&family=Shadows+Into+Light&family=Orbitron:wght@700&family=Audiowide&family=Exo+2:wght@700&family=Russo+One&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+   
+  <!-- Navigation bar -->
+  <nav>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="JargalPhotographer.png">
+    </a>
+
+    <!-- Hamburger (гар утасны цэс товч) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Menu -->
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Нүүр хуудас</a></li>
+      <li class="dropdown">
+        <a id="portfolio-btn">Бүтээлийн сан<i class="fa-solid fa-angle-down arrow"></i></a>
+        <ul class="submenu" id="portfolio-menu">
+          <li><a href="fashion.html">Загвар</a></li>
+          <li><a href="portraits.html">Хөрөг зураг</a></li>
+          <li><a href="brands.html">Брэнд бүтээгдэхүүн</a></li>
+          <li><a href="life.html">Хэв маяг</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">Миний тухай</a></li>
+      <li><a href="contact.html">Холбоо барих</a></li>
+    </ul>
+
+    <!-- Social Icons -->
+    <div class="socials">
+        <a href="https://www.facebook.com/batjargal.na"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/milions_stars/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </nav>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+
+  <!-- Зөөлөн хөдөлдөг сумнууд -->
+  <a class="prev"><i class="fas fa-chevron-left"></i></a>
+  <a class="next"><i class="fas fa-chevron-right"></i></a>
+
+    <img src="images/img1.jpg" class="slide active" alt="Slide 1">
+    <img src="images/img3.jpg" class="slide" alt="Slide 3">
+    <img src="images/img4.jpg" class="slide" alt="Slide 4">
+    <img src="images/img5.jpg" class="slide" alt="Slide 5">
+
+    <div class="caption">Jargal Photographer</div>
+
+    <!-- Dots -->
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="content">
+    <canvas id="bg"></canvas>
+    <h2 class="section-title2">
+      <span>Миний тухай</span>
+    </h2>
+
+    <div class="container">
+      <div class="image-box">
+        <img src="images/me.jpg" alt="Jargal Photographer">
+      </div>
+
+      <div class="text-box">
+        <h1>
+          Намайг Жаргал гэдэг. Улаанбаатар хотод үйл ажиллагаа явуулдаг гэрэл зурагчин. <br>
+          Таны дахин давтагдашгүй мөчүүдийг гэрэл зурагт буулгахдаа баяртай байна.
+        </h1>
+        <p>
+          Миний бяцхан вэб хуудсанд тавтай морил. Би таны хамгийн эрхэм дурсамжуудыг цаг 
+          хугацаанд хадгалж, насан туршдаа нандигнан дурсагдах гэрэл зургуудыг бүтээх болно.
+        </p>
+        <div class="socials">
+          <a href="https://www.facebook.com/batjargal.na"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/milions_stars/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio">
+    <h2 class="section-title"><span>Бүтээлийн Сан</span></h2>
+
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <a href="fashion.html">
+          <img src="images/fashion.jpg" alt="Fashion">
+          <div class="overlay">Загвар</div>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="portraits.html">
+          <img src="images/portraits.jpg" alt="Portraits">
+          <div class="overlay">Хөрөг зураг</div>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="brands.html">
+          <img src="images/brand.jpg" alt="Brand">
+          <div class="overlay">Брэнд бүтээгдэхүүн</div>
+        </a>
+      </div>
+
+      <div class="portfolio-item">
+        <a href="life.html">
+          <img src="images/life_style.jpg" alt="Life Style">
+          <div class="overlay">Хэв маяг</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<section class="video-section">
+  <h2 class="section-title"><span>Видео</span></h2>
+  <div class="video-container">
+    <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+
+    <video id="videoPlayer" controls>
+      <source src="videos/video1.mp4" type="video/mp4">
+      Таны браузер энэ видеог тоглуулах боломжгүй байна.
+    </video>
+
+    <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+<script>
+  // 🎬 Видео жагсаалт
+  const videos = [
+    "videos/video1.mp4",
+    "videos/video2.mp4",
+    "videos/video3.mp4",
+    "videos/video4.mp4",
+    "videos/video5.mp4",
+  ];
+
+  let currentIndex = 0;
+  const videoPlayer = document.getElementById("videoPlayer");
+
+  // Дараагийн видео
+  document.querySelector(".next-btn").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % videos.length;
+    playVideo();
+  });
+
+  // Өмнөх видео
+  document.querySelector(".prev-btn").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+    playVideo();
+  });
+
+  // Видео солих функц
+  function playVideo() {
+    videoPlayer.src = videos[currentIndex];
+    videoPlayer.load();
+    videoPlayer.play();
+  }
+</script>
+
+</section>
+
+
+  <!-- Footer -->
+  <footer>© 2025 Jargal Photographer</footer>
+
+  <!-- JS тусад нь -->
+  <script src="script.js"></script>
+</body>
+</html>

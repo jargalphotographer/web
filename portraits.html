@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jargal Photographer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <nav>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/JargalPhotographer.png">
+    </a>
+
+    <!-- Hamburger (гар утасны цэс товч) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Menu -->
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Нүүр хуудас</a></li>
+      <li class="dropdown">
+        <a id="portfolio-btn">Бүтээлийн сан<i class="fa-solid fa-angle-down arrow"></i></a>
+        <ul class="submenu" id="portfolio-menu">
+          <li><a href="fashion.html">Загвар</a></li>
+          <li><a href="portraits.html">Хөрөг зураг</a></li>
+          <li><a href="brands.html">Брэнд бүтээгдэхүүн</a></li>
+          <li><a href="life.html">Хэв маяг</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">Миний тухай</a></li>
+      <li><a href="contact.html">Холбоо барих</a></li>
+    </ul>
+
+    <!-- Social Icons -->
+    <div class="socials">
+        <a href="https://www.facebook.com/batjargal.na"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/milions_stars/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </nav>
+
+
+<main class="fashion_gallery" id="gallery">
+  <a class="thumb" href="#" data-full="portraits/1.jpg" aria-label="Image 1">
+    <img src="portraits/thumb/1.jpg" alt="">
+    <div class="caption">Photo 1</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/2.jpg" aria-label="Image 2">
+    <img src="portraits/thumb/2.jpg" alt="">
+    <div class="caption">Photo 2</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/3.jpg" aria-label="Image 3">
+    <img src="portraits/thumb/3.jpg" alt="">
+    <div class="caption">Photo 3</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/4.jpg" aria-label="Image 4">
+    <img src="portraits/thumb/4.jpg" alt="">
+    <div class="caption">Photo 4</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/5.jpg" aria-label="Image 5">
+    <img src="portraits/thumb/5.jpg" alt="">
+    <div class="caption">Photo 5</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/6.jpg" aria-label="Image 5">
+    <img src="portraits/thumb/6.jpg" alt="">
+    <div class="caption">Photo 5</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/7.jpg" aria-label="Image 5">
+    <img src="portraits/thumb/7.jpg" alt="">
+    <div class="caption">Photo 5</div>
+  </a>
+
+  <a class="thumb" href="#" data-full="portraits/8.jpg" aria-label="Image 5">
+    <img src="portraits/thumb/8.jpg" alt="">
+    <div class="caption">Photo 5</div>
+  </a>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="lightbox-inner" id="lightboxInner">
+    <div class="info" id="imageInfo"></div>
+    <button class="close-btn" id="closeBtn" aria-label="Close (Esc)">✕</button>
+    <button class="nav-btn nav-prev" id="prevBtn" aria-label="Previous">❮</button>
+    <button class="nav-btn nav-next" id="nextBtn" aria-label="Next">❯</button>
+    <img src="" alt="" id="lightboxImg" class="lightbox-img" draggable="false">
+  </div>
+</div>
+
+<!-- Gallery JS -->
+<script src="gallery.js"></script>
+
+<!-- Footer -->
+<footer>
+  © <?php echo date("Y"); ?> Jargal Photographer
+</footer>
+
+<!-- Navbar JS -->
+<script src="script.js"></script>
+</body>
+</html>
+

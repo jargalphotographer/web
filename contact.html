@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jargal Photographer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <nav>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/JargalPhotographer.png">
+    </a>
+
+    <!-- Hamburger (гар утасны цэс товч) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <!-- Menu -->
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a id="portfolio-btn">Portfolio <i class="fa-solid fa-angle-down arrow"></i></a>
+        <ul class="submenu" id="portfolio-menu">
+          <li><a href="fashion.html">Fashion</a></li>
+          <li><a href="portraits.html">Portraits</a></li>
+          <li><a href="brands.html">Brands</a></li>
+          <li><a href="life.html">life style</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Social Icons -->
+    <div class="socials">
+        <a href="https://www.facebook.com/batjargal.na"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/milions_stars/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <!-- Зураг хэсэг -->
+    <img src="images/me.jpg" alt="Photographer">
+
+    <!-- Форм хэсэг -->
+    <div class="form-section">
+      <p>
+        Thank you for your interest in Laura Lewis Photography!  
+        Whether you're interested in scheduling a session, have questions about our services, or just want to say hello, we'd love to hear from you.
+      </p>
+        <form id="contact-form">
+            <div class="name-fields">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+            </div>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+        </form>
+    </div>
+  </div>
+
+  <footer>© 2025 Jargal Photographer</footer>
+
+  <!-- JS тусад нь -->
+  <script src="script.js"></script>
+</body>
+</html>
