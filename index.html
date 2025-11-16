@@ -138,44 +138,57 @@
 <section class="video-section">
   <h2 class="section-title"><span>Видео</span></h2>
 
-  <div class="video-container">
+  <div class="video-container" style="position: relative; max-width: 1280px; margin: auto;">
     <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
 
-<iframe 
-  id="ytPlayer"
-  src="https://www.youtube.com/embed/NE67AmFewk8"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
+    <div id="ytPlayer" class="yt-box"></div>
 
     <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
   </div>
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  // 🎬 YouTube видео ID жагсаалт
   const videos = [
     "NE67AmFewk8",
     "FLpYzL_9qgM",
   ];
 
   let currentIndex = 0;
-  const ytPlayer = document.getElementById("ytPlayer");
+  let player;
 
-  // Видео солих функц
-  function playVideo() {
-    ytPlayer.src = "https://www.youtube.com/embed/" + videos[currentIndex] + "?autoplay=1";
+  function onYouTubeIframeAPIReady() {
+    loadVideo();
   }
 
-  // Дараагийн видео
+  function loadVideo() {
+    if (player) {
+      player.loadVideoById(videos[currentIndex]);
+      return;
+    }
+
+    player = new YT.Player("ytPlayer", {
+      videoId: videos[currentIndex],
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        rel: 0,
+        modestbranding: 1,
+        showinfo: 0,
+        controls: 1,
+        playsinline: 1,
+        iv_load_policy: 3,
+        vq: "hd1080"
+      }
+    });
+  }
+
   document.querySelector(".next-btn").addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % videos.length;
-    playVideo();
+    loadVideo();
   });
 
-  // Өмнөх видео
   document.querySelector(".prev-btn").addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + videos.length) % videos.length;
-    playVideo();
+    loadVideo();
   });
 </script>
 

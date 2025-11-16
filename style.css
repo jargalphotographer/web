@@ -564,7 +564,13 @@ section {
   padding-bottom: 5px;
 }
 
-/* Видео wrap */
+.yt-box iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+
 .video-container {
   position: relative;
   width: 100%;
@@ -981,5 +987,4 @@ footer {
   text-align: center;
   color: white;
   z-index: 999;
-
 }
