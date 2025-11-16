@@ -567,9 +567,16 @@ section {
 /* Видео wrap */
 .video-container {
   position: relative;
-  display: inline-block;
-  margin-top: 20px;
-  margin-bottom: 60px;
+  width: 100%;
+  max-width: 1280px;   /* хүсвэл авч болно */
+  margin: auto;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
 
 video {
@@ -974,4 +981,5 @@ footer {
   text-align: center;
   color: white;
   z-index: 999;
+
 }
