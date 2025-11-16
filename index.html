@@ -137,29 +137,37 @@
 
 <section class="video-section">
   <h2 class="section-title"><span>Видео</span></h2>
+
   <div class="video-container">
     <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
 
-    <video id="videoPlayer" controls>
-      <source src="videos/video1.mp4" type="video/mp4">
-      Таны браузер энэ видеог тоглуулах боломжгүй байна.
-    </video>
+    <iframe 
+      id="ytPlayer"
+      width="1280"
+      height="720"
+      src="https://www.youtube.com/embed/NE67AmFewk8"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
 
     <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
   </div>
 
 <script>
-  // 🎬 Видео жагсаалт
+  // 🎬 YouTube видео ID жагсаалт
   const videos = [
-    "videos/video1.mp4",
-    "videos/video2.mp4",
-    "videos/video3.mp4",
-    "videos/video4.mp4",
-    "videos/video5.mp4",
+    "NE67AmFewk8",
+    "FLpYzL_9qgM",
   ];
 
   let currentIndex = 0;
-  const videoPlayer = document.getElementById("videoPlayer");
+  const ytPlayer = document.getElementById("ytPlayer");
+
+  // Видео солих функц
+  function playVideo() {
+    ytPlayer.src = "https://www.youtube.com/embed/" + videos[currentIndex] + "?autoplay=1";
+  }
 
   // Дараагийн видео
   document.querySelector(".next-btn").addEventListener("click", () => {
@@ -172,13 +180,6 @@
     currentIndex = (currentIndex - 1 + videos.length) % videos.length;
     playVideo();
   });
-
-  // Видео солих функц
-  function playVideo() {
-    videoPlayer.src = videos[currentIndex];
-    videoPlayer.load();
-    videoPlayer.play();
-  }
 </script>
 
 </section>
@@ -191,5 +192,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
