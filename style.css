@@ -313,7 +313,7 @@ nav .menu {
 }
 
 .logo img {
-  height: 40px;
+  height: 80px;
 }
 
 /* --- Меню цэсийн загвар --- */
@@ -995,4 +995,5 @@ footer {
   text-align: center;
   color: white;
   z-index: 999;
+
 }
