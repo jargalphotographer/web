@@ -6,15 +6,23 @@
   box-sizing: border-box; /* padding, border нь өргөнд нөлөөлөхгүй */
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   font-family: Arial, sans-serif; /* үндсэн фонт */
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden; /* хэвтээ scroll гаргахгүй */
-  overflow-y: auto; /* босоо scroll хэвийн ажиллана */
-  background: linear-gradient(135deg, #2d313f, #757575); /* арын gradient өнгө */
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #1a394e, #90c7de);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Доош гулгах үед тасрахгүй */
 }
-
 /* -------------- Гарчигийн (section title) загвар -------------- */
 .section-title {
   text-align: center; /* голлуулна */
