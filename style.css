@@ -986,7 +986,7 @@ video {
 /* Footer хэсэг */
 footer {
   background: #acabab;
-  position: fixed;
+  position: fixed
   bottom: 0;
   left: 0;
   width: 100%;
@@ -997,4 +997,5 @@ footer {
   z-index: 999;
 
 }
+
 
