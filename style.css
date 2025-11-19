@@ -980,12 +980,13 @@ footer {
   left: 0;
   width: 100%;
   background: #acabab;
-  padding: 20px;
+  padding: 0px;
   text-align: center;
   color: white;
   z-index: 999;
 
 }
+
 
 
 
