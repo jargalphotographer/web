@@ -12,7 +12,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   background: linear-gradient(135deg, #1a394e, #90c7de);
   background-repeat: no-repeat;
   background-attachment: fixed; /* Доош гулгах үед тасрахгүй */
@@ -980,6 +980,7 @@ footer {
     color: white;
     margin-top: auto;
 }
+
 
 
 
