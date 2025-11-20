@@ -9,6 +9,7 @@
 
 body {
   font-family: Arial, sans-serif; /* үндсэн фонт */
+  height: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
@@ -976,6 +977,7 @@ footer {
     color: white;
     margin-top: auto;
 }
+
 
 
 
