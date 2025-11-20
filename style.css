@@ -12,6 +12,10 @@
     flex-direction: column;
 }
 
+.main {
+    flex: 1;
+}
+
 body {
   font-family: Arial, sans-serif; /* үндсэн фонт */
   margin: 0px;
@@ -985,6 +989,7 @@ footer {
     color: white;
     margin-top: auto;
 }
+
 
 
 
