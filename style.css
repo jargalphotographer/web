@@ -50,7 +50,6 @@ body {
   display: block;
   width: 290px;
   height: 4px;
-  \background: #ff7e5f; /* улаан-улбар шар зураас */
   margin: 8px auto 0;
   border-radius: 2px;
 }
@@ -360,9 +359,6 @@ nav .menu {
 
 /* -------------- Section animation background -------------- */
 section {
-  \background: linear-gradient(-45deg, #4f46e5, #22c55e, #f97316, #06b6d4);
-  \background-size: 400% 400%;
-  \animation: gradientBG 20s ease infinite;
   padding: 40px;
 }
     @keyframes gradientBG {
@@ -980,6 +976,7 @@ footer {
     color: white;
     margin-top: auto;
 }
+
 
 
 
